@@ -9,9 +9,8 @@ review = st.text_area("Enter your review")
 
 if st.button("Analyze"):
     if review.strip():
-        prediction = model.predict([review])
-        
-        if prediction[0] == 1:
+        prediction = model.predict([review])[0]
+        if prediction == 1:
             st.success("Positive")
         else:
             st.error("Negative")
